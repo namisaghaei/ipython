@@ -148,27 +148,4 @@ class ExtensionManager(Configurable):
         Returns the full path to the installed file.
         """
         # Ensure the extension directory exists
-        ensure_dir_exists(self.ipython_extension_dir)
-
-        if os.path.isfile(url):
-            src_filename = os.path.basename(url)
-            copy = copyfile
-        else:
-            # Deferred imports
-            try:
-                from urllib.parse import urlparse  # Py3
-                from urllib.request import urlretrieve
-            except ImportError:
-                from urlparse import urlparse
-                from urllib import urlretrieve
-            src_filename = urlparse(url).path.split('/')[-1]
-            copy = urlretrieve
-
-        if filename is None:
-            filename = src_filename
-        if os.path.splitext(filename)[1] not in ('.py', '.zip'):
-            raise ValueError("The file must have a .py or .zip extension", filename)
-
-        filename = os.path.join(self.ipython_extension_dir, filename)
-        copy(url, filename)
-        return filename
+        print('alsdkjfpaoiirhgp')
